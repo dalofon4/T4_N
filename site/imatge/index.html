@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>1.6 Realitzar una imatge amb clonezilla - CLONACIÓ I RESTAURACIÓ D'UN DISC DUR AMB CLONEZILLA</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link href="../css/extra.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../arrancada/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../arrancada/" class="btn btn-xs btn-link">
+        2.1 Arrancada
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../arrancada/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../arrancada/" class="btn btn-xs btn-link">
+        1.5 Arrancada de Clonezilla
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <p>Manera de funcionament :</p>
+<ul>
+<li><em>device-image:</em> Selecciona aquesta opció per a generar una imatge o per a restaurar una imatge.</li>
+<li>
+<p><em>Device-device:</em> S'utilitza per a clonar un disc o partició directament a un altre disc o partició.
+ <em>Directori d'on llegir o on escriure la imatge:</em></p>
+</li>
+<li>
+<p><em>local_dev:</em>  La imatge es farà en un disc local. Lògicament, com en tot linux,serà necessari muntar el dispositiu en el qual està o deixarem la imatge. No es
+pot guardar la imatge en una de les particions que volem ficar dins de la imatge.</p>
+</li>
+<li><em>ssh_server:</em> La imatge es lllegirao escriurà en una unitat de xarxa ssh.</li>
+<li><em>Samba_server:</em> La imatge es llegirà o escriurà en una carpeta compartida Samba (normalment Windows).</li>
+<li><em>Enter_shell:</em> Et permet entrar en la manera de comandos i muntar el teu mateix la unitat escrivint els comandos necessari.</li>
+</ul>
+<p>Escollim Device-image:</p>
+<p><img alt="w:900px h:300px" src="../imatges/imatge_7.png" /></p>
+<p>La imatge es farà a un disc local:</p>
+<p><img alt="w:900px h:300px" src="../imatges/imatge_8.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
+<p><strong>Ctrl+c</strong> per tornar a la pantalla gràfica.</p>
+<p>Lloc en el qual es guardarà la imatge:</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+</div>
+<p>Triarem el disc creat, no agafarem el disc del nostre Sistema Operatiu.</p>
+<p><img alt="w:900px h:300px" src="../imatges/imatge_9.png" /></p>
+<p><img alt="w:900px h:300px" src="../imatges/imatge_10.png" /></p>
+<p>Acceptem manera principiant:</p>
+<p><img alt="w:900px h:300px" src="../imatges/imatge_11.png" /></p>
+<p>Seleccionem savedisk per a realitzar una imatge d'un disc complet:</p>
+<p><img alt="w:900px h:300px" src="../imatges/imatge_12.png" /></p>
+<p>Seleccionem el nom de la imatge. En un entorn de producció, és habitual incloure la data com a part del nom de la imatge. És obligatori que el nom de la imatge guarde relació amb el sistema que s'estiga guardant. Aquests són alguns exemples:</p>
+<ul>
+<li>20140325-ServNexun</li>
+<li>20140325-WebServer-</li>
+<li>20140325-Proxy-AntesDeActualizacion</li>
+</ul>
+<p><img alt="w:900px h:200px" src="../imatges/imatge_13.png" /></p>
+<p>Com que hem seleccionat que volem fer una imatge d'un disc complet,en la següent pantalla, ens mostrarà els discos que estan connectats en l'equip perquè  triem els discos que volem incloure en la imatge. </p>
+<p>Seleccionem l'únic disc.</p>
+<p><img alt="w:900px h:200px" src="../imatges/imatge_14.png" /></p>
+<p>Comprovació després d'acabada la imatge. Allarga el procés, però es garanteix que s'ha realitzat correctament i que es pot restaurar.</p>
+<p><img alt="w:900px h:400px" src="../imatges/imatge_15.png" /></p>
+<p><img alt="w:900px h:300px" src="../imatges/imatge_16.png" /></p>
+<p><img alt="w:900px h:200px" src="../imatges/imatge_17.png" /></p>
+<p>Confirmació que volem continuar amb tot el procés del qual se'ns informa...</p>
+<p><img alt="w:900px h:300px" src="../imatges/imatge_18.png" /></p>
+<p>Finestra que ens indica el temps del procés de clonació.</p>
+<p><img alt="" src="../imatges/imatge_19.png" /></p>
+<p>Una vegada finalitzat el procés reiniciarà el Sistema Operatiu com li hem indicat, eliminarem les 3 carpetes creades al primer punt a l’escriptori i de nou canviarem el fons de pantalla al que teníem inicialment i apagarem el Sistema Operatiu.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../arrancada/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../arrancada/" class="btn btn-xs btn-link">
+        2.1 Arrancada
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../arrancada/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../arrancada/" class="btn btn-xs btn-link">
+        1.5 Arrancada de Clonezilla
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
