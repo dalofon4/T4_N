@@ -1,5 +1,6 @@
 site_name: CLONACIÓ I RESTAURACIÓ D'UN DISC DUR AMB CLONEZILLA
-
+docs_dir: 'md'
+site_dir: 'docs'
 
 
 nav:
